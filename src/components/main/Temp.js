@@ -11,7 +11,7 @@ class Temp extends Component {
         return (
             <div>
                 <h1 style={tempStyle} onClick={this.props.changeTemp.bind(this, temp)} >
-                    {temp}{' '}
+                    {temp}&deg;{' '}
                     {this.props.isCelsius && <React.Fragment>C</React.Fragment>}
                     {!this.props.isCelsius && <React.Fragment>F</React.Fragment>}
                 </h1>
