@@ -10,7 +10,11 @@ class Temp extends Component {
         let temp = this.props.temp;
         return (
             <div>
-                <h1 style={tempStyle} onClick={this.props.changeTemp.bind(this, temp)} >{ temp }</h1>
+                <h1 style={tempStyle} onClick={this.props.changeTemp.bind(this, temp)} >
+                    {temp}{' '}
+                    {this.props.isCelsius && <React.Fragment>C</React.Fragment>}
+                    {!this.props.isCelsius && <React.Fragment>F</React.Fragment>}
+                </h1>
             </div>
         )
     }

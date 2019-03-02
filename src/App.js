@@ -26,6 +26,8 @@ class App extends Component {
       description: '',
       isCelsius: true
     }
+
+    this.capitalize = this.capitalize.bind(this);
   }
 
  componentDidMount() {
@@ -56,12 +58,16 @@ class App extends Component {
     }
   }
 
+  capitalize = str => {
+    return str.charAt(0).toUpperCase() + str.substring(1);
+  }
+
   render() {
     return (
       <div className="App">
         <div className="container">
           <Header />
-          <Weather weather={this.state} changeTemp={this.changeTemp} />
+          <Weather weather={this.state} changeTemp={this.changeTemp} capitalize={this.capitalize} />
           <Footer />
         </div>
       </div>

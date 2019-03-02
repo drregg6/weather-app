@@ -8,7 +8,7 @@ class WeatherDesc extends Component {
     render() {
         return (
             <React.Fragment>
-                <h1>{ this.props.description }</h1>
+                <h1>{ this.props.capitalize(this.props.description) }</h1>
             </React.Fragment>
         )
     }

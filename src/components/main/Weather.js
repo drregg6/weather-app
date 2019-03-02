@@ -16,8 +16,8 @@ class Weather extends React.Component {
         return (
             <div style={weatherStyle}>
                 <City city={this.props.weather.city} />
-                <Temp changeTemp={this.props.changeTemp} temp={this.props.weather.temp} />
-                <WeatherDesc description={this.props.weather.description} />
+                <Temp changeTemp={this.props.changeTemp} temp={this.props.weather.temp} isCelsius={this.props.weather.isCelsius} />
+                <WeatherDesc description={this.props.weather.description} capitalize={this.props.capitalize} />
             </div>
         );
     }
