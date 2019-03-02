@@ -1,3 +1,14 @@
+/*
+
+- Search bar to search the API and find your location
+- Or a find by IP API
+- Break Weather components down
+- Add images for different weather states
+- Change the temperature: F and C
+- Add other information
+
+*/
+
 import React, { Component } from 'react';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
@@ -12,7 +23,8 @@ class App extends Component {
     this.state = {
       city: '',
       temp: 0,
-      description: ''
+      description: '',
+      isCelsius: true
     }
   }
 
@@ -23,18 +35,33 @@ class App extends Component {
     axios.get(endpoint)
     .then(res => this.setState({
       city: res.data.name,
-      temp: res.data.main.temp,
+      temp: (res.data.main.temp - 273.15).toFixed(2),
       description: res.data.weather[0].description
     }));
     console.log(this.state);
    }
+
+  changeTemp = () => {
+    const fahrenheitTemp = (((this.state.temp - 273.15) * (9/5)) + 32).toFixed(2);
+    if (this.state.isCelsius) { // if Celsius
+      this.setState({ // swap to Fahrenheit
+        temp: ((this.state.temp * (9/5)) + 32).toFixed(2)
+      });
+      this.state.isCelsius = !this.state.isCelsius;
+    } else { // if Fahrenheit
+      this.setState({ // swap to Celsius
+        temp: ((this.state.temp - 32) * (5/9)).toFixed(2)
+      });
+      this.state.isCelsius = !this.state.isCelsius;
+    }
+  }
 
   render() {
     return (
       <div className="App">
         <div className="container">
           <Header />
-          <Weather weather={this.state} />
+          <Weather weather={this.state} changeTemp={this.changeTemp} />
           <Footer />
         </div>
       </div>

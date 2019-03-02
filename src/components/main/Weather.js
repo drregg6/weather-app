@@ -1,4 +1,7 @@
 import React from 'react';
+import City from './City';
+import Temp from './Temp';
+import WeatherDesc from './WeatherDesc';
 
 class Weather extends React.Component {
     /*
@@ -10,12 +13,11 @@ class Weather extends React.Component {
      */
 
     render() {
-        const { city, temp, description } = this.props.weather
         return (
             <div style={weatherStyle}>
-                <h1>{city}</h1>
-                <p>{temp}</p>
-                <p>{description}</p>
+                <City city={this.props.weather.city} />
+                <Temp changeTemp={this.props.changeTemp} temp={this.props.weather.temp} />
+                <WeatherDesc description={this.props.weather.description} />
             </div>
         );
     }
