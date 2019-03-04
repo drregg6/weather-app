@@ -1,5 +1,36 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 .container {
-    margin: 50px;
+    width: 80%;
+    margin: 0px auto;
     padding: 0;
     text-align: center;
+}
+
+input[type="text"] {
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: none;
+    border-bottom: 1px solid transparent;
+}
+input[type="text"]:focus {
+    outline: none;
+
+    border-bottom: 1px solid #333;
+}
+
+input[type="submit"] {
+    background: #fff;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 2px;
+}
+input[type="submit"]:hover {
+    background: #333;
+    color: #fff;
 }

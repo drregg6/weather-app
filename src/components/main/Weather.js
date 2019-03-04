@@ -15,16 +15,26 @@ class Weather extends React.Component {
     render() {
         return (
             <div style={weatherStyle}>
-                <City city={this.props.weather.city} />
-                <Temp changeTemp={this.props.changeTemp} temp={this.props.weather.temp} isCelsius={this.props.weather.isCelsius} />
-                <WeatherDesc description={this.props.weather.description} capitalize={this.props.capitalize} />
+                <City
+                    city={this.props.weather.city}
+                />
+                <Temp
+                    changeTemp={this.props.changeTemp}
+                    temp={this.props.weather.temp}
+                    isCelsius={this.props.weather.isCelsius}
+                />
+                <WeatherDesc
+                    description={this.props.weather.description}
+                    capitalize={this.props.capitalize}
+                />
             </div>
         );
     }
 }
 
 const weatherStyle = {
-    // height: '200px'
+    background: '#fff',
+    margin: 0
 }
 
 export default Weather;
