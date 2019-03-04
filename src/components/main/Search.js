@@ -12,8 +12,9 @@ class Search extends Component {
     onSubmit = (ev) => {
         ev.preventDefault();
         this.props.searchLocation(this.state.value);
-        this.setState({ value: '' });
-
+        this.setState({
+            value: ''
+        });
     }
 
     getInput = (ev) => {
@@ -30,6 +31,7 @@ class Search extends Component {
                     type="text"
                     name="location"
                     placeholder="Search for a location..."
+                    value={this.state.value}
                     onChange={this.getInput}
                 />
                 <input style={buttonStyle} type="submit" value="Search!" />

@@ -1,9 +1,9 @@
 /*
 
-- Search bar to search the API and find your location
-- Or a find by IP API
+- Add PropTypes
 - Add images for different weather states
-- Add other information
+- Add other information -- main onClick => description
+- Beautify!
 
 */
 
@@ -31,6 +31,7 @@ class App extends Component {
     this.returnAPI = this.returnAPI.bind(this);
   }
 
+  // rework this function
   changeTemp = () => {
     const fahrenheitTemp = (((this.state.temp - 273.15) * (9/5)) + 32).toFixed(2);
     if (this.state.isCelsius) { // if Celsius
@@ -63,7 +64,11 @@ class App extends Component {
       temp: (res.data.main.temp - 273.15).toFixed(2),
       description: res.data.weather[0].description,
       isCelsius: true
-    }));
+    }))
+    .catch(err => {
+      alert('location not found, try the closest city');
+      console.log(err);
+    });
   }
 
  componentDidMount() {
@@ -74,17 +79,6 @@ class App extends Component {
   searchLocation = (location) => {
     console.log('searching...');
     this.returnAPI(location);
-    /*
-      once SUBMIT is hit
-        search for location in API
-        if location is found
-          and location is different than the current location
-          update this.state to new api information
-        if location is not found
-          alert(cannot find location)
-          check for typos
-        end
-    */
   }
 
   render() {
