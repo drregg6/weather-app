@@ -11,5 +11,5 @@ export default function Footer() {
 const footerStyle = {
     color: '#fff',
     background: '#333',
-    padding: '50px'
+    padding: '25px'
 }

@@ -42,7 +42,8 @@ class Search extends Component {
 
 const searchStyles = {
     display: 'flex',
-    height: '40px'
+    height: '40px',
+    backgroundColor: '#fff'
 }
 
 const inputStyle = {

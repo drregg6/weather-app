@@ -3,6 +3,17 @@
 - Add images for different weather states
 - Add other information -- main onClick => description
 - Beautify!
+- backgroundOptions
+    2: thunderstorms
+    3: drizzle
+    5: rain
+    6: snow
+    7: fog
+    8: clear / scattered clouds
+  if code == 2 {
+    select random image from backgroundOptions inside key 2
+    set background image to random image
+   }
 
 */
 
@@ -26,8 +37,16 @@ class App extends Component {
       isCelsius: true,
       code: 0,
       main: ''
-    }
+    };
 
+    this.backgroundOptions = {
+      2: ['list', 'of', 'image', 'urls'],
+      3: ['list', 'of', 'image', 'urls'],
+      5: ['list', 'of', 'image', 'urls'],
+      6: ['list', 'of', 'image', 'urls'],
+      7: ['list', 'of', 'image', 'urls'],
+      8: ['list', 'of', 'image', 'urls']
+    }
     this.capitalize = this.capitalize.bind(this);
     this.returnAPI = this.returnAPI.bind(this);
   }
@@ -65,7 +84,7 @@ class App extends Component {
       temp: (res.data.main.temp - 273.15).toFixed(0),
       description: res.data.weather[0].description,
       isCelsius: true,
-      code: res.data.weather[0].id,
+      code: parseInt((''+res.data.weather[0].id)[0]),
       main: res.data.weather[0].main
     }))
     .catch(err => {
@@ -87,7 +106,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="container">
+        <div className="container" style={containerStyles}>
           <Header />
           <Search
             searchLocation={this.searchLocation}
@@ -102,6 +121,12 @@ class App extends Component {
       </div>
     );
   }
+}
+
+const containerStyles = {
+  backgroundImage: 'url("https://images.pexels.com/photos/19670/pexels-photo.jpg")',
+  backgroundPosition: 'center',
+  backgroundSize: 'cover'
 }
 
 export default App;

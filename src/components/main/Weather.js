@@ -28,7 +28,7 @@ class Weather extends React.Component {
 }
 
 const weatherStyle = {
-    background: '#fff'
+    textAlign: 'center'
 }
 
 Weather.propTypes = {
