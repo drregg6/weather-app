@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class City extends React.Component {
     constructor(props) {
@@ -7,11 +8,15 @@ class City extends React.Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <h1>{ this.props.city }</h1>
-            </div>
+            </React.Fragment>
         )
     }
+}
+
+City.propTypes = {
+    city: PropTypes.string.isRequired
 }
 
 export default City;

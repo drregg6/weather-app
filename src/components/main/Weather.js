@@ -1,20 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import City from './City';
 import Temp from './Temp';
 import WeatherDesc from './WeatherDesc';
 
 class Weather extends React.Component {
-    /*
-        let city = 'Philadelphia';
-        let lat = `lat=39&`;
-        let lon = `lon=139`;
-        const apikey = '&appid=780062c871d1cd69decae7b5869ddeba';
-        let endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}${apikey}`;
-     */
 
     render() {
         return (
-            <div style={weatherStyle}>
+            <div style={weatherStyle} className="main">
                 <City
                     city={this.props.weather.city}
                 />
@@ -33,8 +28,13 @@ class Weather extends React.Component {
 }
 
 const weatherStyle = {
-    background: '#fff',
-    margin: 0
+    background: '#fff'
+}
+
+Weather.propTypes = {
+    weather: PropTypes.object.isRequired,
+    changeTemp: PropTypes.func.isRequired,
+    capitalize: PropTypes.func.isRequired
 }
 
 export default Weather;

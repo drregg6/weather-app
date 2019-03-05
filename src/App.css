@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Lobster+Two|Ubuntu');
+
 *,
 *:before,
 *:after {
@@ -5,12 +7,28 @@
 }
 
 .container {
+    font-family: 'Ubuntu', sans-serif;
+    letter-spacing: .5px;
     width: 80%;
     margin: 25px auto;
     padding: 0;
     text-align: center;
     box-shadow: 25px 5px 25px 5px #ccc,
                 -25px -5px 25px 5px #ccc;
+}
+
+header {
+    font-family: 'Lobster Two', sans-serif;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.main {
+    margin: 25px auto;
+}
+
+.main h1 {
+    margin: 0 auto;
 }
 
 input[type="text"] {
