@@ -1,19 +1,7 @@
 /*
 
-- Add images for different weather states
-- Add other information -- main onClick => description
 - Beautify!
-- backgroundOptions
-    2: thunderstorms
-    3: drizzle
-    5: rain
-    6: snow
-    7: fog
-    8: clear / scattered clouds
-  if code == 2 {
-    select random image from backgroundOptions inside key 2
-    set background image to random image
-   }
+- change header color
 
 */
 
@@ -25,6 +13,46 @@ import Search from './components/main/Search';
 
 import axios from 'axios';
 import './App.css';
+
+const backgroundOptions = {
+  thunderstorm: [
+    require('./images/thunderstorm1.jpeg'),
+    require('./images/thunderstorm2.jpeg'),
+    require('./images/thunderstorm3.jpeg'),
+    require('./images/thunderstorm4.jpg'),
+    require('./images/thunderstorm5.jpeg')
+  ],
+  rain: [
+    require('./images/rain1.jpeg'),
+    require('./images/rain2.jpeg'),
+    require('./images/rain3.jpeg'),
+    require('./images/rain4.jpeg'),
+    require('./images/rain5.jpeg')
+  ],
+  snow: [
+    require('./images/snow1.jpeg'),
+    require('./images/snow2.jpeg'),
+    require('./images/snow3.jpeg'),
+    require('./images/snow4.jpeg'),
+    require('./images/snow5.jpeg')
+  ],
+  fog: [
+    require('./images/fog1.jpg'),
+    require('./images/fog2.jpeg'),
+    require('./images/fog3.jpeg'),
+    require('./images/fog4.jpeg'),
+    require('./images/fog5.jpeg')
+  ],
+  clouds: [
+    require('./images/clouds1.jpeg'),
+    require('./images/clouds2.jpeg'),
+    require('./images/clouds3.jpeg'),
+    require('./images/clouds4.jpeg'),
+    require('./images/clouds5.jpeg')
+  ]
+}
+
+
 
 class App extends Component {
   constructor(props) {
@@ -39,16 +67,9 @@ class App extends Component {
       main: ''
     };
 
-    this.backgroundOptions = {
-      2: ['list', 'of', 'image', 'urls'],
-      3: ['list', 'of', 'image', 'urls'],
-      5: ['list', 'of', 'image', 'urls'],
-      6: ['list', 'of', 'image', 'urls'],
-      7: ['list', 'of', 'image', 'urls'],
-      8: ['list', 'of', 'image', 'urls']
-    }
     this.capitalize = this.capitalize.bind(this);
     this.returnAPI = this.returnAPI.bind(this);
+    this.returnBackground = this.returnBackground.bind(this);
   }
 
   // rework this function
@@ -93,8 +114,35 @@ class App extends Component {
     });
   }
 
+  returnBackground = (code) => {
+    let randNum = Math.floor(Math.random() * 5);
+    let ret;
+    switch(code) {
+      case 2:
+        ret = backgroundOptions.thunderstorms[randNum];
+        break;
+      case 3:
+        ret = backgroundOptions.rain[randNum];
+        break;
+      case 5:
+        ret = backgroundOptions.rain[randNum];
+        break;
+      case 6:
+        ret = backgroundOptions.snow[randNum];
+        break;
+      case 7:
+        ret = backgroundOptions.fog[randNum];
+        break;
+      default:
+        ret = backgroundOptions.clouds[randNum];
+    }
+    console.log(ret);
+    return ret;
+  }
+
  componentDidMount() {
     this.returnAPI();
+    this.returnBackground(this.state.code);
     console.log(this.state);
   }
 
@@ -104,6 +152,12 @@ class App extends Component {
   }
 
   render() {
+
+    const containerStyles = {
+      backgroundImage: `url(${this.returnBackground(this.state.code)})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover'
+    }
     return (
       <div className="App">
         <div className="container" style={containerStyles}>
@@ -121,12 +175,6 @@ class App extends Component {
       </div>
     );
   }
-}
-
-const containerStyles = {
-  backgroundImage: 'url("https://images.pexels.com/photos/19670/pexels-photo.jpg")',
-  backgroundPosition: 'center',
-  backgroundSize: 'cover'
 }
 
 export default App;

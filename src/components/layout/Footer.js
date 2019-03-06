@@ -1,9 +1,12 @@
 import React from 'react';
 
 export default function Footer() {
+    let date = new Date();
     return (
         <footer style={footerStyle}>
-            <h6>Footer</h6>
+            <p>
+                &copy;{date.getUTCFullYear()} <a href="https://github.com/drregg6" target="_blank">Dave Regg</a>
+            </p>
         </footer>
     );
 }
@@ -11,5 +14,6 @@ export default function Footer() {
 const footerStyle = {
     color: '#fff',
     background: '#333',
-    padding: '25px'
+    padding: '15px',
+    fontSize: 10
 }
