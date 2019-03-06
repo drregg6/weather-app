@@ -6,6 +6,10 @@
     box-sizing: border-box;
 }
 
+html {
+    background: rgba(3, 104, 255, .4);
+}
+
 a {
     text-decoration: none;
     color: #ccc;
@@ -14,7 +18,7 @@ a:hover {
     color: #fff;
 }
 a:visited {
-    color: #0f0;
+    color: rgba(155, 0, 194, 1);
 }
 
 .container {
@@ -24,8 +28,10 @@ a:visited {
     margin: 25px auto;
     padding: 0;
     text-align: center;
-    box-shadow: 25px 5px 25px 5px #ccc,
-                -25px -5px 25px 5px #ccc;
+    box-shadow: 3px 3px 30px 1px #9f9f9f,
+                -3px -3px 30px 1px #9f9f9f;
+    border: 7px solid #333;
+    border-radius: 5px;
 }
 
 header {
@@ -49,22 +55,23 @@ input[type="text"] {
     padding-left: 10px;
     padding-right: 10px;
     border: none;
-    border-bottom: 1px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-top: 3px solid transparent;
 }
 input[type="text"]:focus {
     outline: none;
 
-    border-bottom: 1px solid #333;
+    border-bottom: 3px solid rgba(155, 0, 194, .3);
 }
 
 input[type="submit"] {
     background: #fff;
-    color: #333;
-    border: 1px solid #333;
+    color: rgba(155, 0, 194, 1);
+    border: 1px solid rgba(155, 0, 194, 1);
     border-radius: 2px;
 }
 input[type="submit"]:hover {
-    background: #333;
+    background: rgba(155, 0, 194, 1);
     color: #fff;
 }
 

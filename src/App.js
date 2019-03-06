@@ -116,28 +116,25 @@ class App extends Component {
 
   returnBackground = (code) => {
     let randNum = Math.floor(Math.random() * 5);
-    let ret;
     switch(code) {
       case 2:
-        ret = backgroundOptions.thunderstorms[randNum];
+        return backgroundOptions.thunderstorms[randNum];
         break;
       case 3:
-        ret = backgroundOptions.rain[randNum];
+        return backgroundOptions.rain[randNum];
         break;
       case 5:
-        ret = backgroundOptions.rain[randNum];
+        return backgroundOptions.rain[randNum];
         break;
       case 6:
-        ret = backgroundOptions.snow[randNum];
+        return backgroundOptions.snow[randNum];
         break;
       case 7:
-        ret = backgroundOptions.fog[randNum];
+        return backgroundOptions.fog[randNum];
         break;
       default:
-        ret = backgroundOptions.clouds[randNum];
+        return backgroundOptions.clouds[randNum];
     }
-    console.log(ret);
-    return ret;
   }
 
  componentDidMount() {
