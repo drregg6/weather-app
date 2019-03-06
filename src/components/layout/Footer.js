@@ -13,7 +13,7 @@ export default function Footer() {
 
 const footerStyle = {
     color: '#333',
-    background: '#ffa703',
+    background: 'rgba(255, 167, 3, 1)',
     padding: '15px',
     fontSize: 10
 }

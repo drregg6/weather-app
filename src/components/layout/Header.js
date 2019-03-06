@@ -10,7 +10,7 @@ export default function Header() {
 
 const headerStyle = {
     color: '#333',
-    background: '#ffa703',
+    background: 'rgba(255, 167, 3, 1)',
     padding: '10px',
     fontSize: '1.5rem'
 }
