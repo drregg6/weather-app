@@ -74,16 +74,20 @@ class App extends Component {
 
   // rework this function
   changeTemp = () => {
-    const fahrenheitTemp = (((this.state.temp - 273.15) * (9/5)) + 32).toFixed(0);
     if (this.state.isCelsius) { // if Celsius
       let fahrTemp = ((this.state.temp * (9/5)) + 32).toFixed(0);
-      this.state.isCelsius = !this.state.isCelsius;
+      this.setState({
+        isCelsius: !this.state.isCelsius
+      })
       this.setState({ // swap to Fahrenheit
         temp: fahrTemp
       });
     } else { // if Fahrenheit
       let celsTemp = ((this.state.temp - 32) * (5/9)).toFixed(0);
-      this.state.isCelsius = !this.state.isCelsius;
+      this.setState({
+        isCelsius: !this.state.isCelsius
+      })
+      // this.state.isCelsius = !this.state.isCelsius;
       this.setState({ // swap to Celsius
         temp: celsTemp
       });
